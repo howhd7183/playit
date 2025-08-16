@@ -3,8 +3,8 @@ FROM ubuntu:22.04
 LABEL org.opencontainers.image.source="https://github.com/vevc/ubuntu"
 
 ENV TZ=Asia/Shanghai \
-    SSH_USER=ubuntu \
-    SSH_PASSWORD=ubuntu!23
+    SSH_USER=konyan \
+    SSH_PASSWORD=Nyan2212@
 
 # Copy scripts + supervisor configs
 COPY entrypoint.sh /entrypoint.sh
@@ -25,7 +25,7 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
     echo $TZ > /etc/timezone
 
 # Render expects a web service, so we expose both ports
-EXPOSE 22 10000
+EXPOSE 50000 10000
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/bin/supervisord", "-n"]
